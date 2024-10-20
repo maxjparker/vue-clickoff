@@ -10,8 +10,7 @@
   },
   "scripts": {
     "build": "vite",
-    "test": "vitest -w",
-    "test:browser": "vitest --workspace=vitest.workspace.ts"
+    "test": "vitest -w"
   },
   "devDependencies": {
     "@types/node": "22.7.7",
