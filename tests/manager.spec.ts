@@ -1,18 +1,18 @@
 import { expect, it,  } from "vitest";
-import { type ClickOffConfig, ClickOffManager } from '../src/manager'
+import { type ClickAwayListener, ClickAwayManager } from '../src/manager'
 
 it('registers and unregisters new config objects', () => {
-  const manager = ClickOffManager.get()
+  const manager = ClickAwayManager.get()
   const el = document.createElement('div')
 
-  const config: ClickOffConfig = {
+  const listener: ClickAwayListener = {
     el: el,
-    hook: () => {}
+    callback: () => {}
   }
 
-  manager.register(config)
+  manager.register(listener)
 
-  expect(manager.getStore()).toEqual([config])
+  expect(manager.getStore()).toEqual([listener])
 
   manager.unregister(el)
 

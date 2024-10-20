@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { vClickOff } from '../src/directive'
+import { directive as vClickAway } from '../src/directive'
 
 const props = defineProps<{
   handler: (e: MouseEvent) => void
@@ -10,7 +10,7 @@ const relativeId = 'relative-id'
 
 <template>
   <button :id="relativeId" data-testid="relative">Relative: Should not trigger ClickOff</button>
-  <section v-click-off:[relativeId]="props.handler">
+  <section v-click-away:[relativeId]="props.handler">
     <button data-testid="inside">Should not trigger ClickOff</button>
   </section>
   <section>

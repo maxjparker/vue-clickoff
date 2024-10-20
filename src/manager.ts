@@ -1,12 +1,12 @@
-export interface ClickOffConfig {
-  hook: CallableFunction;
+export interface ClickAwayListener {
+  callback: CallableFunction;
   el: Node;
   relative?: Node
 }
 
-export class ClickOffManager {
-  private static instance: ClickOffManager;
-  private store: ClickOffConfig[] = [];
+export class ClickAwayManager {
+  private static instance: ClickAwayManager;
+  private store: ClickAwayListener[] = [];
 
   private constructor() {
     document.addEventListener('click', (event) => {
@@ -14,14 +14,14 @@ export class ClickOffManager {
     }, { capture: true });
   }
 
-  public static get(): ClickOffManager {
-    if (!ClickOffManager.instance) {
-      ClickOffManager.instance = new ClickOffManager();
+  public static get(): ClickAwayManager {
+    if (!ClickAwayManager.instance) {
+      ClickAwayManager.instance = new ClickAwayManager();
     }
-    return ClickOffManager.instance;
+    return ClickAwayManager.instance;
   }
 
-  public register(unit: ClickOffConfig): void {
+  public register(unit: ClickAwayListener): void {
     this.store.push(unit);
   }
 
@@ -29,19 +29,23 @@ export class ClickOffManager {
     this.store = this.store.filter(unit => unit.el !== el);
   }
 
-  public getStore(): ClickOffConfig[] {
+  public getStore(): ClickAwayListener[] {
     return this.store
   }
 
   private processClick(event: MouseEvent | PointerEvent): void {
     for (const unit of this.store) {
       if (this.shouldRunHook(unit, event)) {
-        unit.hook(event);
+        unit.callback(event);
       }
     }
   }
 
-  private shouldRunHook(unit: ClickOffConfig, click: MouseEvent | PointerEvent): boolean {
-    return !unit.el.contains(click.target as Node) && !unit.relative?.contains(click.target as Node);
+  private shouldRunHook(
+    listener: ClickAwayListener, 
+    click: MouseEvent | PointerEvent
+  ): boolean {
+    return !listener.el.contains(click.target as Node) 
+      && !listener.relative?.contains(click.target as Node);
   }
 }

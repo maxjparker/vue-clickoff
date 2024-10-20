@@ -1,10 +1,10 @@
 import { expect, it,  } from "vitest";
 import { render } from 'vitest-browser-vue'
-import TestClickOffDirective from "./TestClickOffDirective.vue";
+import TestDirective from "./TestDirective.vue";
 
 it('triggers a hook when clicked off element', async () => {
   let handlerTriggered = false;
-  const screen = render(TestClickOffDirective, {
+  const screen = render(TestDirective, {
     props: {
       handler: (e: MouseEvent) => {
         handlerTriggered = true
@@ -17,7 +17,7 @@ it('triggers a hook when clicked off element', async () => {
 
 it('does not trigger a hook when clicked inside area', async () => {
   let handlerTriggered = false;
-  const screen = render(TestClickOffDirective, {
+  const screen = render(TestDirective, {
     props: {
       handler: (e: MouseEvent) => {
         handlerTriggered = true
@@ -30,7 +30,7 @@ it('does not trigger a hook when clicked inside area', async () => {
 
 it('does not trigger a hook when relative is clicked ', async () => {
   let handlerTriggered = false;
-  const screen = render(TestClickOffDirective, {
+  const screen = render(TestDirective, {
     props: {
       handler: (e: MouseEvent) => {
         handlerTriggered = true

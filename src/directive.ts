@@ -1,24 +1,24 @@
 import type { Directive } from 'vue';
-import { ClickOffManager } from './manager';
+import { ClickAwayManager } from './manager';
 
-export const vClickOff: Directive = {
+export const directive: Directive = {
   mounted(el, binding) {
-    const manager = ClickOffManager.get();
+    const manager = ClickAwayManager.get();
     if (binding.arg) {
       manager.register({
-        hook: binding.value,
+        callback: binding.value,
         el: el,
         relative: document.getElementById(binding.arg) as Node
       });
       return;
     }
     manager.register({
-      hook: binding.value,
+      callback: binding.value,
       el: el,
     });
   },
   unmounted(el) {
-    const manager = ClickOffManager.get();
+    const manager = ClickAwayManager.get();
     manager.unregister(el);
   }
 };
