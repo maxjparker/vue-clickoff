@@ -1,7 +1,7 @@
 {
   "name": "vue-clickoff",
   "version": "1.0.0-beta.0",
-  "description": "a better vue3 clickaway directive",
+  "description": "another vue3 clickaway directive",
   "type": "module",
   "sideEffects": false,
   "exports": {
