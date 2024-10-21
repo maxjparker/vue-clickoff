@@ -36,13 +36,10 @@
     "dist"
   ],
   "keywords": [
-    "clickaway",
-    "clickoff",
-    "vue-clickoff",
+    "v-click-away",
+    "vue",
     "vue3",
-    "vue-clickaway",
-    "vue3-clickaway",
-    "vue"
+    "click-away"
   ],
   "author": "Max Parker",
   "repository": {
