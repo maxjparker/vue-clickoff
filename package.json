@@ -1,6 +1,6 @@
 {
   "name": "v-click-away",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "another vue3 clickaway directive",
   "type": "module",
   "sideEffects": false,
@@ -8,7 +8,7 @@
     "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/vue-clickoff.js"
+      "default": "./dist/v-click-away.js"
     }
   },
   "scripts": {
