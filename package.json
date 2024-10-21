@@ -1,6 +1,6 @@
 {
   "name": "v-click-away",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "another vue3 clickaway directive",
   "type": "module",
   "sideEffects": false,
